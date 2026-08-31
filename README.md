@@ -117,7 +117,3 @@ let
 in
 ocx.package
 ```
-
-Generate the option reference with `nix build .#docs-md`; it is written to `result/index.md`.
-
-Maintainers can update the npm release, lockfile, generated Bun dependencies, and source hash with `nix run .#update`.

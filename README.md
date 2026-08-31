@@ -1,6 +1,6 @@
 # opencodex.nix
 
-A Nix flake for [OpenCodex](https://github.com/lidge-jun/opencodex), the universal provider proxy for Codex.
+A Nix flake for [opencodex](https://github.com/lidge-jun/opencodex), the universal provider proxy for Codex.
 
 It provides:
 

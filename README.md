@@ -1,6 +1,6 @@
 # opencodex.nix
 
-A Nix flake for [opencodex](https://github.com/lidge-jun/opencodex), the universal provider proxy for Codex.
+A Nix flake for [opencodex](https://github.com/lidge-jun/opencodex), a universal provider proxy for LLMs.
 
 It provides:
 
@@ -76,11 +76,11 @@ The NixOS module runs a system service as an explicitly selected user:
 }
 ```
 
-OpenCodex binds to loopback by default. Only use `openFirewall = true` together with a deliberate non-loopback configuration and API authentication.
+opencodex binds to loopback by default. Only use `openFirewall = true` together with a deliberate non-loopback configuration and API authentication.
 
 ## Configuration ownership
 
-When `settings` is non-null and the service is enabled, the module recursively merges it over OpenCodex's current (or built-in default) configuration, validates the result, and imports it before every start. Declared fields are reasserted after a restart; dashboard changes to undeclared fields remain intact. Leave `settings = null` (the default) to manage configuration entirely through `ocx setup` or the dashboard.
+When `settings` is non-null and the service is enabled, the module recursively merges it over opencodex's current (or built-in default) configuration, validates the result, and imports it before every start. Declared fields are reasserted after a restart; dashboard changes to undeclared fields remain intact. Leave `settings = null` (the default) to manage configuration entirely through `ocx setup` or the dashboard.
 
 Environment values are explicit so secrets need not enter the Nix store:
 
@@ -97,7 +97,7 @@ An environment file can be supplied instead:
 programs.opencodex.environment = config.sops.templates.opencodex-env.path;
 ```
 
-The service uses `OCX_SERVICE=1`, matching OpenCodex's own supervised-service mode. This preserves Codex routing across automatic restarts. After permanently disabling the service, run `ocx restore` if Codex should immediately return to its native provider.
+The service uses `OCX_SERVICE=1`, matching opencodex's own supervised-service mode. This preserves Codex routing across automatic restarts. After permanently disabling the service, run `ocx restore` if Codex should immediately return to its native provider.
 
 ## Overlay and library
 
